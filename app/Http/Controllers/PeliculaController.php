@@ -13,7 +13,8 @@ class PeliculaController extends Controller
      */
     public function index()
     {
-        //
+        return view('peliculas.index', ['peliculas'=>Pelicula::with('ficha')->get()]);
+
     }
 
     /**
@@ -47,7 +48,7 @@ class PeliculaController extends Controller
         $ficha->fichable()->associate($pelicula); 
         $ficha->save();
         session()->flash('exito', 'Pelicula creada correctamente.');
-        return redirect()->route('fichas.index');
+        return redirect()->route('peliculas.index');
     }
 
     /**

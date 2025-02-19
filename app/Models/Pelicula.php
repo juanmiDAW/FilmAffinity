@@ -12,7 +12,7 @@ class Pelicula extends Model
 
     protected $fillable = ['autor'];
 
-    public function fichas(){
+    public function ficha(){
         return $this->morphOne(Ficha::class, 'fichable');
     }
 }
